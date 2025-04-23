@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Mini Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -11,9 +12,22 @@
     header {
       height: 400px;
       width: 100%;
-      background-image: url('header.jpg'); /* Remplace par ton image */
+      background-image: url('header.jpg'); /* image locale */
       background-size: cover;
       background-position: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header h1 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      background-color: white;
+      padding: 20px 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .quiz-section {
       padding: 20px;
@@ -22,21 +36,23 @@
     .quiz-section.active {
       display: block;
     }
-    h1 {
-      font-size: 24px;
-    }
-    .answers {
-      margin-top: 10px;
-    }
     .answers label {
       display: block;
       margin-bottom: 5px;
+      padding: 8px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    .correct {
+      background-color: #c8e6c9; /* vert clair */
     }
   </style>
 </head>
 <body>
 
-<header></header>
+<header>
+  <h1>Bienvenue au Mini Quiz !</h1>
+</header>
 
 <!-- Question 1 -->
 <section class="quiz-section active" id="q1">
@@ -60,19 +76,22 @@
   </div>
 </section>
 
-<!-- Ajoute plus de sections ici si tu veux -->
-
 <script>
   document.querySelectorAll('.quiz-section').forEach((section, index) => {
     const radios = section.querySelectorAll('input[type="radio"]');
     radios.forEach(radio => {
       radio.addEventListener('change', () => {
         if (radio.value === "true") {
-          const nextSection = document.querySelector(`#q${index + 2}`);
-          if (nextSection) {
-            nextSection.classList.add('active');
-            nextSection.scrollIntoView({ behavior: 'smooth' });
-          }
+          const label = radio.parentElement;
+          label.classList.add('correct');
+          setTimeout(() => {
+            section.classList.remove('active'); // cache la question actuelle
+            const nextSection = document.querySelector(`#q${index + 2}`);
+            if (nextSection) {
+              nextSection.classList.add('active');
+              nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 2000); // délai de 2s
         }
       });
     });
