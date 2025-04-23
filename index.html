@@ -297,7 +297,7 @@
   <!-- Score final -->
   <section id="score-container" class="hidden bg-white p-6 rounded-xl shadow-md max-w-2xl mx-auto text-center">
     <h2 class="text-2xl font-bold mb-4">Quiz terminé !</h2>
-    <p id="score-result" class="text-lg"></p>
+    <p id="score-result" class="text-lg text-red-600"></p>
     <p id="score-message" class="mt-4 text-lg font-semibold"></p>
     <button id="retry-btn" class="mt-6 hidden bg-pink-500 text-white px-6 py-3 rounded-lg text-lg">Recommencer le quiz</button>
   </section>
@@ -352,7 +352,7 @@
           nextSection.scrollIntoView({ behavior: 'smooth' });
         } else {
           document.getElementById('score-container').classList.remove('hidden');
-          document.getElementById('score-result').textContent = `Votre score : ${score} / ${totalQuestions}`;
+          document.getElementById('score-result').textContent = `Ton score : ${score} / ${totalQuestions}`;
           const message = document.getElementById('score-message');
           const retryBtn = document.getElementById('retry-btn');
 
@@ -362,9 +362,9 @@
           } else if (score <= 12) {
             message.textContent = "Si jamais tu avais reçu cette note AMS, penses-tu que tu serais contente ?";
           } else if (score <= 15) {
-            message.textContent = "Well done ! Tu peux désormais, avec le sourire, te tourner vers moi pour recevoir ton cadeau !";
+            message.textContent = "Well done Blanche ! Tu vas désormais pouvoir ouvrir ton cadeau ! (bon, tu aurais pu faire mieux... Mdr, ptdr, lol)";
           } else {
-            message.textContent = "Blanche, j'étais persuadé que tu lirais ce message ! Avec le sourire, tourne-toi vers moi pour recevoir ton cadeau !";
+            message.textContent = "Blanche, j'étais persuadé que tu lirais ce message ! Tu vas désormais pouvoir ouvrir ton cadeau !";
           }
         }
       }, 2000);
