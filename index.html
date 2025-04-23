@@ -2,18 +2,20 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Mini Quiz Marvel</title>
+  <title>Mini Quiz Blanchounette</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
-      font-size: 18px;
+      font-size: 20px;
+      line-height: 1.6;
     }
     header {
-      height: 280px;
+      height: auto;
+      min-height: 200px;
       width: 100%;
       background-image: url('header.jpg');
       background-size: cover;
@@ -21,48 +23,50 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
+      padding: 20px;
+      text-align: center;
     }
     header h1 {
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
-      font-size: 22px;
+      font-size: 28px;
       background-color: white;
-      padding: 16px 24px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 90%;
     }
     .quiz-section {
-      margin: 10px auto;
-      max-width: 95%;
+      margin: 20px auto;
+      width: 95%;
       background: white;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       display: none;
     }
     .quiz-section.active {
       display: block;
     }
     .quiz-section h1 {
-      font-size: 20px;
-      margin-bottom: 16px;
+      font-size: 24px;
+      margin-bottom: 20px;
     }
     .answers label {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
       margin-bottom: 16px;
-      padding: 14px;
-      font-size: 18px;
-      border-radius: 10px;
+      padding: 18px;
+      font-size: 20px;
+      border-radius: 14px;
       border: 2px solid #ccc;
       transition: background-color 0.3s ease;
       cursor: pointer;
     }
     .answers input[type="radio"] {
-      transform: scale(1.5);
+      transform: scale(1.8);
     }
     .correct {
       background-color: #c8e6c9;
@@ -71,26 +75,29 @@
       background-color: #ffcdd2;
     }
     .validate-btn {
-      margin-top: 15px;
+      margin-top: 20px;
       width: 100%;
-      padding: 16px;
-      font-size: 18px;
+      padding: 18px;
+      font-size: 20px;
       border: none;
-      border-radius: 10px;
+      border-radius: 14px;
       background-color: #1976d2;
       color: white;
       cursor: pointer;
     }
+    .validate-btn:disabled {
+      background-color: #ccc;
+    }
     .explanation {
-      margin-top: 12px;
+      margin-top: 14px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
     }
     #score-container {
       display: none;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
-      font-size: 22px;
+      font-size: 24px;
     }
   </style>
 </head>
