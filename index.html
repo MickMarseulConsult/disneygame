@@ -8,6 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
     }
     header {
       height: 400px;
@@ -29,7 +30,12 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .quiz-section {
-      padding: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       display: none;
     }
     .quiz-section.active {
@@ -37,10 +43,12 @@
     }
     .answers label {
       display: block;
-      margin-bottom: 5px;
-      padding: 8px;
+      margin-bottom: 8px;
+      padding: 10px;
       border-radius: 8px;
       transition: background-color 0.3s ease;
+      cursor: pointer;
+      border: 1px solid #ccc;
     }
     .correct {
       background-color: #c8e6c9;
@@ -49,8 +57,8 @@
       background-color: #ffcdd2;
     }
     .validate-btn {
-      margin-top: 10px;
-      padding: 10px 20px;
+      margin-top: 20px;
+      padding: 12px 24px;
       font-size: 16px;
       border: none;
       border-radius: 8px;
@@ -59,7 +67,7 @@
       cursor: pointer;
     }
     .explanation {
-      margin-top: 10px;
+      margin-top: 15px;
       font-weight: bold;
     }
     #score-container {
@@ -78,54 +86,54 @@
 
 <!-- Questions -->
 <section class="quiz-section active" id="q1" data-answer="0">
-  <h1>Quel est le nom du raton laveur dans les Gardiens de la Galaxie ?</h1>
-  <div class="answers">
-    <label><input type="radio" name="name1" value="0"> Rocket</label>
-    <label><input type="radio" name="name1" value="1"> Groot</label>
-    <label><input type="radio" name="name1" value="2"> Drax</label>
-    <label><input type="radio" name="name1" value="3"> Yondu</label>
-  </div>
-  <button class="validate-btn">Valider</button>
-  <div class="explanation"></div>
-</section>
-
-<section class="quiz-section" id="q2" data-answer="1">
-  <h1>Quel Avenger est un ancien chirurgien ?</h1>
-  <div class="answers">
-    <label><input type="radio" name="name2" value="0"> Bruce Banner</label>
-    <label><input type="radio" name="name2" value="1"> Stephen Strange</label>
-    <label><input type="radio" name="name2" value="2"> Sam Wilson</label>
-    <label><input type="radio" name="name2" value="3"> Tony Stark</label>
-  </div>
-  <button class="validate-btn">Valider</button>
-  <div class="explanation"></div>
-</section>
-
-<section class="quiz-section" id="q3" data-answer="3">
-  <h1>Quel est le nom de la planète où Thanos a trouvé Gamora ?</h1>
-  <div class="answers">
-    <label><input type="radio" name="name3" value="0"> Xandar</label>
-    <label><input type="radio" name="name3" value="1"> Vormir</label>
-    <label><input type="radio" name="name3" value="2"> Morag</label>
-    <label><input type="radio" name="name3" value="3"> Zen-Whoberi</label>
-  </div>
-  <button class="validate-btn">Valider</button>
-  <div class="explanation"></div>
-</section>
-
-<section class="quiz-section" id="q4" data-answer="2">
-  <h1>Quel film marque l’arrivée de Black Panther dans le MCU ?</h1>
-  <div class="answers">
-    <label><input type="radio" name="name4" value="0"> Avengers: Age of Ultron</label>
-    <label><input type="radio" name="name4" value="1"> Black Panther</label>
-    <label><input type="radio" name="name4" value="2"> Captain America: Civil War</label>
-    <label><input type="radio" name="name4" value="3"> Infinity War</label>
-  </div>
-  <button class="validate-btn">Valider</button>
-  <div class="explanation"></div>
-</section>
-
-<!-- Les 16 autres questions continuent ici dans le même format... -->
+    <h1>Quel est le nom du raton laveur dans les Gardiens de la Galaxie ?</h1>
+    <div class="answers">
+      <label><input type="radio" name="name1" value="0"> Rocket</label>
+      <label><input type="radio" name="name1" value="1"> Groot</label>
+      <label><input type="radio" name="name1" value="2"> Drax</label>
+      <label><input type="radio" name="name1" value="3"> Yondu</label>
+    </div>
+    <button class="validate-btn">Valider</button>
+    <div class="explanation"></div>
+  </section>
+  
+  <section class="quiz-section" id="q2" data-answer="1">
+    <h1>Quel Avenger est un ancien chirurgien ?</h1>
+    <div class="answers">
+      <label><input type="radio" name="name2" value="0"> Bruce Banner</label>
+      <label><input type="radio" name="name2" value="1"> Stephen Strange</label>
+      <label><input type="radio" name="name2" value="2"> Sam Wilson</label>
+      <label><input type="radio" name="name2" value="3"> Tony Stark</label>
+    </div>
+    <button class="validate-btn">Valider</button>
+    <div class="explanation"></div>
+  </section>
+  
+  <section class="quiz-section" id="q3" data-answer="3">
+    <h1>Quel est le nom de la planète où Thanos a trouvé Gamora ?</h1>
+    <div class="answers">
+      <label><input type="radio" name="name3" value="0"> Xandar</label>
+      <label><input type="radio" name="name3" value="1"> Vormir</label>
+      <label><input type="radio" name="name3" value="2"> Morag</label>
+      <label><input type="radio" name="name3" value="3"> Zen-Whoberi</label>
+    </div>
+    <button class="validate-btn">Valider</button>
+    <div class="explanation"></div>
+  </section>
+  
+  <section class="quiz-section" id="q4" data-answer="2">
+    <h1>Quel film marque l’arrivée de Black Panther dans le MCU ?</h1>
+    <div class="answers">
+      <label><input type="radio" name="name4" value="0"> Avengers: Age of Ultron</label>
+      <label><input type="radio" name="name4" value="1"> Black Panther</label>
+      <label><input type="radio" name="name4" value="2"> Captain America: Civil War</label>
+      <label><input type="radio" name="name4" value="3"> Infinity War</label>
+    </div>
+    <button class="validate-btn">Valider</button>
+    <div class="explanation"></div>
+  </section>
+  
+  <!-- Les 16 autres questions continuent ici dans le même format... -->
 
 <div id="score-container">
   <h1>Quiz terminé !</h1>
@@ -134,7 +142,7 @@
 
 <script>
   let score = 0;
-  const totalQuestions = 20;
+  const totalQuestions = 3;
 
   document.querySelectorAll('.validate-btn').forEach((btn, index) => {
     btn.addEventListener('click', () => {
@@ -162,17 +170,6 @@
         score++;
         explanation.textContent = 'Bonne réponse !';
         explanation.style.color = 'green';
-        setTimeout(() => {
-          section.classList.remove('active');
-          const nextSection = document.querySelector(`#q${index + 2}`);
-          if (nextSection) {
-            nextSection.classList.add('active');
-            nextSection.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            document.getElementById('score-container').style.display = 'block';
-            document.getElementById('score-result').textContent = `Votre score : ${score} / ${totalQuestions}`;
-          }
-        }, 2000);
       } else {
         radios[selected].parentElement.classList.add('wrong');
         correctLabel.classList.add('correct');
@@ -182,6 +179,18 @@
 
       btn.disabled = true;
       radios.forEach(r => r.disabled = true);
+
+      setTimeout(() => {
+        section.classList.remove('active');
+        const nextSection = document.querySelector(`#q${index + 2}`);
+        if (nextSection) {
+          nextSection.classList.add('active');
+          nextSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          document.getElementById('score-container').style.display = 'block';
+          document.getElementById('score-result').textContent = `Votre score : ${score} / ${totalQuestions}`;
+        }
+      }, 2000);
     });
   });
 </script>
