@@ -230,6 +230,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini Quiz Marvel</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -241,76 +242,57 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gray-100 font-sans">
 
-<header class="h-[300px] bg-cover bg-center flex items-center justify-center" style="background-image: url('header.jpg');">
-  <h1 class="text-2xl md:text-4xl font-bold text-center bg-white p-6 rounded-xl shadow-lg w-11/12 max-w-lg">
-    Bienvenue au Mini Quiz Marvel !
+<header class="h-64 bg-cover bg-center flex items-center justify-center" style="background-image: url('header.jpg');">
+  <h1 class="text-2xl md:text-4xl font-bold text-center bg-white p-6 rounded-xl shadow-lg w-11/12 max-w-xl">
+    Blanche, bienvenue dans ton Quiz d'anniversaire !
   </h1>
 </header>
 
-<section class="quiz-section active" id="q1" data-answer="0">
-    <h1>Quel est le nom du raton laveur dans les Gardiens de la Galaxie ?</h1>
-    <div class="answers">
-      <label><input type="radio" name="name1" value="0"> Rocket</label>
-      <label><input type="radio" name="name1" value="1"> Groot</label>
-      <label><input type="radio" name="name1" value="2"> Drax</label>
-      <label><input type="radio" name="name1" value="3"> Yondu</label>
+<main class="p-4 space-y-6">
+
+  <!-- Question 1 -->
+  <section id="q1" data-answer="0" class="bg-white p-6 rounded-xl shadow-md max-w-2xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">Quel est le nom du raton laveur dans les Gardiens de la Galaxie ?</h2>
+    <div class="space-y-4">
+      <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer"><input type="radio" name="name1" value="0" class="scale-150"> Rocket</label>
+      <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer"><input type="radio" name="name1" value="1" class="scale-150"> Groot</label>
+      <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer"><input type="radio" name="name1" value="2" class="scale-150"> Drax</label>
+      <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer"><input type="radio" name="name1" value="3" class="scale-150"> Yondu</label>
     </div>
-    <button class="validate-btn">Valider</button>
-    <div class="explanation"></div>
-  </section>
-  
-  <section class="quiz-section" id="q2" data-answer="1">
-    <h1>Quel Avenger est un ancien chirurgien ?</h1>
-    <div class="answers">
-      <label><input type="radio" name="name2" value="0"> Bruce Banner</label>
-      <label><input type="radio" name="name2" value="1"> Stephen Strange</label>
-      <label><input type="radio" name="name2" value="2"> Sam Wilson</label>
-      <label><input type="radio" name="name2" value="3"> Tony Stark</label>
-    </div>
-    <button class="validate-btn">Valider</button>
-    <div class="explanation"></div>
-  </section>
-  
-  <section class="quiz-section" id="q3" data-answer="3">
-    <h1>Quel est le nom de la planète où Thanos a trouvé Gamora ?</h1>
-    <div class="answers">
-      <label><input type="radio" name="name3" value="0"> Xandar</label>
-      <label><input type="radio" name="name3" value="1"> Vormir</label>
-      <label><input type="radio" name="name3" value="2"> Morag</label>
-      <label><input type="radio" name="name3" value="3"> Zen-Whoberi</label>
-    </div>
-    <button class="validate-btn">Valider</button>
-    <div class="explanation"></div>
-  </section>
-  
-  <section class="quiz-section" id="q4" data-answer="2">
-    <h1>Quel film marque l’arrivée de Black Panther dans le MCU ?</h1>
-    <div class="answers">
-      <label><input type="radio" name="name4" value="0"> Avengers: Age of Ultron</label>
-      <label><input type="radio" name="name4" value="1"> Black Panther</label>
-      <label><input type="radio" name="name4" value="2"> Captain America: Civil War</label>
-      <label><input type="radio" name="name4" value="3"> Infinity War</label>
-    </div>
-    <button class="validate-btn">Valider</button>
-    <div class="explanation"></div>
+    <button class="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg text-lg validate-btn">Valider</button>
+    <div class="explanation mt-4 font-bold"></div>
   </section>
 
-<div id="score-container" class="hidden p-6 text-center text-xl">
-  <h1 class="text-2xl font-bold mb-4">Quiz terminé !</h1>
-  <p id="score-result"></p>
-</div>
+  <!-- Question 2 -->
+  <section id="q2" data-answer="1" class="hidden bg-white p-6 rounded-xl shadow-md max-w-2xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">Quel Avenger est un ancien chirurgien ?</h2>
+    <div class="space-y-4">
+      <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer"><input type="radio" name="name2" value="0" class="scale-150"> Bruce Banner</label>
+      <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer"><input type="radio" name="name2" value="1" class="scale-150"> Stephen Strange</label>
+      <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer"><input type="radio" name="name2" value="2" class="scale-150"> Sam Wilson</label>
+      <label class="flex items-center gap-3 p-4 border rounded-lg cursor-pointer"><input type="radio" name="name2" value="3" class="scale-150"> Tony Stark</label>
+    </div>
+    <button class="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg text-lg validate-btn">Valider</button>
+    <div class="explanation mt-4 font-bold"></div>
+  </section>
+
+  <!-- Score final -->
+  <section id="score-container" class="hidden bg-white p-6 rounded-xl shadow-md max-w-2xl mx-auto text-center">
+    <h2 class="text-2xl font-bold mb-4">Quiz terminé !</h2>
+    <p id="score-result" class="text-lg"></p>
+  </section>
+</main>
 
 <script>
   let score = 0;
-  const totalQuestions = 4;
+  const totalQuestions = 2;
 
   document.querySelectorAll('.validate-btn').forEach((btn, index) => {
     btn.addEventListener('click', () => {
-      const section = btn.closest('.quiz-section');
+      const section = btn.closest('section');
       const correctIndex = parseInt(section.getAttribute('data-answer'));
       const radios = section.querySelectorAll('input[type="radio"]');
       const explanation = section.querySelector('.explanation');
@@ -324,7 +306,7 @@
 
       if (selected === null) {
         explanation.textContent = 'Veuillez sélectionner une réponse.';
-        explanation.className = 'explanation text-red-500 font-bold mt-4';
+        explanation.className = 'explanation text-red-500 font-bold';
         return;
       }
 
@@ -333,12 +315,12 @@
         correctLabel.classList.add('bg-green-100');
         score++;
         explanation.textContent = 'Bonne réponse !';
-        explanation.className = 'explanation text-green-600 font-bold mt-4';
+        explanation.className = 'explanation text-green-600 font-bold';
       } else {
         radios[selected].parentElement.classList.add('bg-red-100');
         correctLabel.classList.add('bg-green-100');
         explanation.textContent = 'Mauvaise réponse. La bonne réponse était : ' + correctLabel.innerText;
-        explanation.className = 'explanation text-red-600 font-bold mt-4';
+        explanation.className = 'explanation text-red-600 font-bold';
       }
 
       btn.disabled = true;
