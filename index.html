@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Quiz</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      height: 400px;
+      width: 100%;
+      background-image: url('header.jpg'); /* Remplace par ton image */
+      background-size: cover;
+      background-position: center;
+    }
+    .quiz-section {
+      padding: 20px;
+      display: none;
+    }
+    .quiz-section.active {
+      display: block;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    .answers {
+      margin-top: 10px;
+    }
+    .answers label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<header></header>
+
+<!-- Question 1 -->
+<section class="quiz-section active" id="q1">
+  <h1>Quelle est la capitale de la France ?</h1>
+  <div class="answers">
+    <label><input type="radio" name="q1" value="false"> Lyon</label>
+    <label><input type="radio" name="q1" value="false"> Marseille</label>
+    <label><input type="radio" name="q1" value="true"> Paris</label>
+    <label><input type="radio" name="q1" value="false"> Lille</label>
+  </div>
+</section>
+
+<!-- Question 2 -->
+<section class="quiz-section" id="q2">
+  <h1>Combien font 2 + 2 ?</h1>
+  <div class="answers">
+    <label><input type="radio" name="q2" value="false"> 3</label>
+    <label><input type="radio" name="q2" value="true"> 4</label>
+    <label><input type="radio" name="q2" value="false"> 5</label>
+    <label><input type="radio" name="q2" value="false"> 6</label>
+  </div>
+</section>
+
+<!-- Ajoute plus de sections ici si tu veux -->
+
+<script>
+  document.querySelectorAll('.quiz-section').forEach((section, index) => {
+    const radios = section.querySelectorAll('input[type="radio"]');
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.value === "true") {
+          const nextSection = document.querySelector(`#q${index + 2}`);
+          if (nextSection) {
+            nextSection.classList.add('active');
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
