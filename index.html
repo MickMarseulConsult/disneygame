@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Mini Quiz</title>
+  <title>Mini Quiz Marvel</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,10 +12,9 @@
     header {
       height: 400px;
       width: 100%;
-      background-image: url('header.jpg'); /* image locale */
+      background-image: url('header.jpg');
       background-size: cover;
       background-position: center;
-      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -44,56 +43,145 @@
       transition: background-color 0.3s ease;
     }
     .correct {
-      background-color: #c8e6c9; /* vert clair */
+      background-color: #c8e6c9;
+    }
+    .wrong {
+      background-color: #ffcdd2;
+    }
+    .validate-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #1976d2;
+      color: white;
+      cursor: pointer;
+    }
+    .explanation {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    #score-container {
+      display: none;
+      padding: 30px;
+      text-align: center;
+      font-size: 24px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Bienvenue au Mini Quiz !</h1>
+  <h1>Bienvenue au Mini Quiz Marvel !</h1>
 </header>
 
-<!-- Question 1 -->
-<section class="quiz-section active" id="q1">
-  <h1>Quelle est la capitale de la France ?</h1>
+<!-- Questions -->
+<section class="quiz-section active" id="q1" data-answer="0">
+  <h1>Quel est le nom du raton laveur dans les Gardiens de la Galaxie ?</h1>
   <div class="answers">
-    <label><input type="radio" name="q1" value="false"> Lyon</label>
-    <label><input type="radio" name="q1" value="false"> Marseille</label>
-    <label><input type="radio" name="q1" value="true"> Paris</label>
-    <label><input type="radio" name="q1" value="false"> Lille</label>
+    <label><input type="radio" name="name1" value="0"> Rocket</label>
+    <label><input type="radio" name="name1" value="1"> Groot</label>
+    <label><input type="radio" name="name1" value="2"> Drax</label>
+    <label><input type="radio" name="name1" value="3"> Yondu</label>
   </div>
+  <button class="validate-btn">Valider</button>
+  <div class="explanation"></div>
 </section>
 
-<!-- Question 2 -->
-<section class="quiz-section" id="q2">
-  <h1>Combien font 2 + 2 ?</h1>
+<section class="quiz-section" id="q2" data-answer="1">
+  <h1>Quel Avenger est un ancien chirurgien ?</h1>
   <div class="answers">
-    <label><input type="radio" name="q2" value="false"> 3</label>
-    <label><input type="radio" name="q2" value="true"> 4</label>
-    <label><input type="radio" name="q2" value="false"> 5</label>
-    <label><input type="radio" name="q2" value="false"> 6</label>
+    <label><input type="radio" name="name2" value="0"> Bruce Banner</label>
+    <label><input type="radio" name="name2" value="1"> Stephen Strange</label>
+    <label><input type="radio" name="name2" value="2"> Sam Wilson</label>
+    <label><input type="radio" name="name2" value="3"> Tony Stark</label>
   </div>
+  <button class="validate-btn">Valider</button>
+  <div class="explanation"></div>
 </section>
+
+<section class="quiz-section" id="q3" data-answer="3">
+  <h1>Quel est le nom de la planète où Thanos a trouvé Gamora ?</h1>
+  <div class="answers">
+    <label><input type="radio" name="name3" value="0"> Xandar</label>
+    <label><input type="radio" name="name3" value="1"> Vormir</label>
+    <label><input type="radio" name="name3" value="2"> Morag</label>
+    <label><input type="radio" name="name3" value="3"> Zen-Whoberi</label>
+  </div>
+  <button class="validate-btn">Valider</button>
+  <div class="explanation"></div>
+</section>
+
+<section class="quiz-section" id="q4" data-answer="2">
+  <h1>Quel film marque l’arrivée de Black Panther dans le MCU ?</h1>
+  <div class="answers">
+    <label><input type="radio" name="name4" value="0"> Avengers: Age of Ultron</label>
+    <label><input type="radio" name="name4" value="1"> Black Panther</label>
+    <label><input type="radio" name="name4" value="2"> Captain America: Civil War</label>
+    <label><input type="radio" name="name4" value="3"> Infinity War</label>
+  </div>
+  <button class="validate-btn">Valider</button>
+  <div class="explanation"></div>
+</section>
+
+<!-- Les 16 autres questions continuent ici dans le même format... -->
+
+<div id="score-container">
+  <h1>Quiz terminé !</h1>
+  <p id="score-result"></p>
+</div>
 
 <script>
-  document.querySelectorAll('.quiz-section').forEach((section, index) => {
-    const radios = section.querySelectorAll('input[type="radio"]');
-    radios.forEach(radio => {
-      radio.addEventListener('change', () => {
-        if (radio.value === "true") {
-          const label = radio.parentElement;
-          label.classList.add('correct');
-          setTimeout(() => {
-            section.classList.remove('active'); // cache la question actuelle
-            const nextSection = document.querySelector(`#q${index + 2}`);
-            if (nextSection) {
-              nextSection.classList.add('active');
-              nextSection.scrollIntoView({ behavior: 'smooth' });
-            }
-          }, 2000); // délai de 2s
-        }
+  let score = 0;
+  const totalQuestions = 20;
+
+  document.querySelectorAll('.validate-btn').forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      const section = btn.closest('.quiz-section');
+      const correctIndex = parseInt(section.getAttribute('data-answer'));
+      const radios = section.querySelectorAll('input[type="radio"]');
+      const explanation = section.querySelector('.explanation');
+
+      let selected = null;
+      radios.forEach((radio, i) => {
+        const label = radio.parentElement;
+        label.classList.remove('correct', 'wrong');
+        if (radio.checked) selected = i;
       });
+
+      if (selected === null) {
+        explanation.textContent = 'Veuillez sélectionner une réponse.';
+        explanation.style.color = 'red';
+        return;
+      }
+
+      const correctLabel = radios[correctIndex].parentElement;
+      if (selected === correctIndex) {
+        correctLabel.classList.add('correct');
+        score++;
+        explanation.textContent = 'Bonne réponse !';
+        explanation.style.color = 'green';
+        setTimeout(() => {
+          section.classList.remove('active');
+          const nextSection = document.querySelector(`#q${index + 2}`);
+          if (nextSection) {
+            nextSection.classList.add('active');
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            document.getElementById('score-container').style.display = 'block';
+            document.getElementById('score-result').textContent = `Votre score : ${score} / ${totalQuestions}`;
+          }
+        }, 2000);
+      } else {
+        radios[selected].parentElement.classList.add('wrong');
+        correctLabel.classList.add('correct');
+        explanation.textContent = 'Mauvaise réponse. La bonne réponse était : ' + correctLabel.innerText;
+        explanation.style.color = 'red';
+      }
+
+      btn.disabled = true;
+      radios.forEach(r => r.disabled = true);
     });
   });
 </script>
