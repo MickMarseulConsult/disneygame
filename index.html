@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <title>Mini Quiz Marvel</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
+      font-size: 18px;
     }
     header {
-      height: 300px;
+      height: 280px;
       width: 100%;
       background-image: url('header.jpg');
       background-size: cover;
@@ -24,7 +26,7 @@
     header h1 {
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
-      font-size: 24px;
+      font-size: 22px;
       background-color: white;
       padding: 16px 24px;
       border-radius: 16px;
@@ -44,16 +46,23 @@
       display: block;
     }
     .quiz-section h1 {
-      font-size: 18px;
+      font-size: 20px;
+      margin-bottom: 16px;
     }
     .answers label {
-      display: block;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 14px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
       transition: background-color 0.3s ease;
       cursor: pointer;
-      border: 1px solid #ccc;
+    }
+    .answers input[type="radio"] {
+      transform: scale(1.5);
     }
     .correct {
       background-color: #c8e6c9;
@@ -64,24 +73,24 @@
     .validate-btn {
       margin-top: 15px;
       width: 100%;
-      padding: 12px;
-      font-size: 16px;
+      padding: 16px;
+      font-size: 18px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       background-color: #1976d2;
       color: white;
       cursor: pointer;
     }
     .explanation {
-      margin-top: 10px;
+      margin-top: 12px;
       font-weight: bold;
-      font-size: 14px;
+      font-size: 16px;
     }
     #score-container {
       display: none;
       padding: 20px;
       text-align: center;
-      font-size: 20px;
+      font-size: 22px;
     }
   </style>
 </head>
