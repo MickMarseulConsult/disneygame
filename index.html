@@ -11,7 +11,7 @@
       background-color: #f4f4f4;
     }
     header {
-      height: 400px;
+      height: 300px;
       width: 100%;
       background-image: url('header.jpg');
       background-size: cover;
@@ -19,31 +19,36 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 10px;
     }
     header h1 {
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
-      font-size: 36px;
+      font-size: 24px;
       background-color: white;
-      padding: 20px 40px;
-      border-radius: 20px;
+      padding: 16px 24px;
+      border-radius: 16px;
+      text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .quiz-section {
-      margin: 20px auto;
-      max-width: 700px;
+      margin: 10px auto;
+      max-width: 95%;
       background: white;
-      border-radius: 20px;
-      padding: 30px;
+      border-radius: 16px;
+      padding: 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       display: none;
     }
     .quiz-section.active {
       display: block;
     }
+    .quiz-section h1 {
+      font-size: 18px;
+    }
     .answers label {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       padding: 10px;
       border-radius: 8px;
       transition: background-color 0.3s ease;
@@ -57,8 +62,9 @@
       background-color: #ffcdd2;
     }
     .validate-btn {
-      margin-top: 20px;
-      padding: 12px 24px;
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
       font-size: 16px;
       border: none;
       border-radius: 8px;
@@ -67,21 +73,22 @@
       cursor: pointer;
     }
     .explanation {
-      margin-top: 15px;
+      margin-top: 10px;
       font-weight: bold;
+      font-size: 14px;
     }
     #score-container {
       display: none;
-      padding: 30px;
+      padding: 20px;
       text-align: center;
-      font-size: 24px;
+      font-size: 20px;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Bienvenue au Mini Quiz Marvel !</h1>
+  <h1>Blanche, bienvenue dans ton Quiz d'anniversaire !</h1>
 </header>
 
 <!-- Questions -->
